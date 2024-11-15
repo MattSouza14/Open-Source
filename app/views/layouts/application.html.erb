@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Rookie Coder Network" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-950 text-white">
+    <main class="bg-gray-950 text-white">
+      <%= render 'layouts/nav' %>
+      <% if alert.present? %>
+        <div class="relative py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert">
+          <span><%= alert %></span>
+          <button class="absolute top-0 right-0 mt-1 mr-1 text-red-500 hover:text-red-700 text-2xl leading-none" onclick="document.getElementById('alert').style.display = 'none';">
+            &times;
+          </button>
+        </div>
+      <% end %>
+      <% if notice.present? %>
+        <div class="relative py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+          <span class="pr-2"><%= notice %></span>
+          <button class="absolute top-0 right-0 mt-1 mr-1 text-green-500 hover:text-green-700 text-2xl leading-none" onclick="document.getElementById('notice').style.display = 'none';">
+            &times;
+          </button>
+        </div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </main>
+  </body>
+</html>

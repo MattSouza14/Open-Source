@@ -1,0 +1,37 @@
+<%= form_with(model: article, local: true, class: "space-y-6 mx-2") do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation" class="bg-red-600 text-white p-4 rounded-md">
+      <h2 class="font-bold"><%= pluralize(article.errors.count, "erro") %> impediram este artigo de ser salvo:</h2>
+      <ul class="mt-2 list-disc list-inside">
+        <% article.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title, 'Título', class: "block text-zinc-200 font-medium" %>
+    <%= form.text_field :title, class: "block shadow-sm rounded-md border border-zinc-600 bg-zinc-800 text-white outline-none px-3 py-2 mt-2 w-full focus:ring-2 focus:ring-lime-500" %>
+  </div>
+
+<div class="my-5">
+  <%= form.label :content, 'Conteúdo', class: "block text-zinc-200 font-medium mb-2" %>
+  <%= form.rich_text_area :content, 
+      rows: 10, 
+      class: "block w-full px-4 py-3 mt-2 text-zinc-200 bg-zinc-800 border border-zinc-600 rounded-md shadow-sm focus:ring focus:ring-lime-500 focus:border-lime-500 
+      focus:outline-none resize-none" %>
+</div>
+
+
+  <div class="my-5">
+    <%= form.label :category, 'categoria', class: "block text-zinc-200 font-medium" %>
+    <%= form.select :category, Article::CATEGORIES, 
+          { prompt: "Selecione uma categoria" }, 
+          class: "block shadow-sm rounded-md border border-zinc-600 bg-zinc-800 text-white outline-none px-3 py-2 mt-2 w-full focus:ring-2 focus:ring-lime-500 appearance-none" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.submit "Postar", class: "bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-lime-500" %>
+  </div>
+<% end %>

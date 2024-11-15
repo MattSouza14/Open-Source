@@ -1,0 +1,39 @@
+@import 'actiontext.css';
+
+/* Estilizando o fundo e o texto do editor */
+trix-editor {
+    background-color: #1e1e1e;
+    /* Cor de fundo escura */
+    color: #d4d4d4;
+    /* Cor do texto clara */
+}
+
+/* Estilizando a barra de ferramentas */
+trix-toolbar {
+    border: none;
+    /* Remover a borda se necessário */
+}
+
+/* Estilizando os ícones do FontAwesome */
+trix-toolbar .trix-button-icon i {
+    color: #d4d4d4;
+    /* Cor dos ícones */
+    font-size: 1rem;
+    /* Ajuste o tamanho se necessário */
+}
+
+trix-toolbar .trix-button-group button {
+    background-color: whitesmoke;
+}
+
+trix-toolbar .trix-button--icon-bullet-list {
+    display: none !important;
+}
+
+/* Ocultar o botão de lista numerada (numbers) */
+trix-toolbar .trix-button--icon-number-list {
+    display: none !important;
+}
+trix-button .trix-button--icon .trix-button--icon-increase-nesting-level{
+    display: none !important;
+}

@@ -1,0 +1,8 @@
+<div class="mx-auto md:w-2/3 w-full bg-zinc-900 text-white p-6 rounded-lg shadow-lg">
+  <h1 class="font-bold text-4xl mb-6">Novo artigo</h1>
+
+  <%= render "form", article: @article %>
+  <div class="mt-4 flex gap-4">
+    <%= link_to "Voltar aos artigos", articles_path, class: "rounded-lg py-2 px-4 bg-zinc-700 text-white inline-block font-medium hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" %>
+  </div>
+</div>

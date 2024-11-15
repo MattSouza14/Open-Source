@@ -1,0 +1,24 @@
+<section class="h-screen flex justify-center items-center bg-zinc-900">
+  <div class="max-w-xl mx-auto p-6 bg-zinc-950 shadow-md rounded-md">
+    <h1 class="text-2xl font-bold text-zinc-50 mb-4">
+      <%= "Pergunta #{@current_question + 1}" %>
+    </h1>
+    
+    <p class="text-gray-50 mb-6">
+      <%= @question_data[:question] %>
+    </p>
+    
+    <%= form_with url: quiz_answer_path, method: :post, class: "space-y-4" do %>
+      <% @question_data[:options].each do |option| %>
+        <div class="flex items-center">
+          <%= radio_button_tag :option, option, false, class: "form-radio h-4 w-4 text-lime-600 transition duration-150 ease-in-out focus:ring focus:ring-lime-500 focus:border-lime-500" %>
+          <%= label_tag :option, option, class: "ml-2 text-gray-50" %>
+        </div>
+      <% end %>
+      
+      <div class="mt-6">
+        <%= submit_tag "Responder", class: "bg-lime-600 text-white px-4 py-2 rounded-md hover:bg-lime-700 transition duration-200" %>
+      </div>
+    <% end %>
+  </div>
+</section>

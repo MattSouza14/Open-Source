@@ -1,0 +1,72 @@
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= image_tag "rokie.png", class:"mx-auto h-10 w-auto" %>
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-50">Faça login na sua conta</h2>
+  </div>
+
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="space-y-6">
+        <div>
+          <%= f.label :email, class:"block text-sm font-medium leading-6 text-gray-50" %>
+          <div class="mt-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between">
+            <%= f.label :password, 'Senha', class:"block text-sm font-medium leading-6 text-gray-50" %>
+            <div class="text-sm hidden">
+              <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class:"font-semibold text-lime-600 hover:text-lime-500" %>
+            </div>
+          </div>
+          <div class="mt-2 relative">
+            <%= f.password_field :password, id: "password-field", autocomplete: "current-password", class:"block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-lime-600 sm:text-sm sm:leading-6 pr-10" %>
+
+            <!-- Botão de Visualizar Senha -->
+            <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 px-3 flex items-center">
+              <!-- Ícone para alternar visibilidade -->
+              <svg id="eye-icon" class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center gap-2">
+            <div class="flex items-center h-5">
+              <%= f.check_box :remember_me, class:"w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" %>
+            </div>
+            <%= f.label :remember_me, 'Lembre de mim', class:"text-gray-500 dark:text-gray-300" %>
+          </div>
+        <% end %>
+        <div>
+          <%= f.submit "Entrar", class:"flex w-full justify-center rounded-md bg-lime-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-lime-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-600" %>
+        </div>
+      </div>
+    <% end %>
+
+    <p class="mt-10 text-center text-sm text-gray-500">
+      Não é membro?
+      <%= link_to "Registre-se", new_registration_path(resource_name), class:"font-semibold leading-6 text-lime-600 hover:text-lime-500" %>
+    </p>
+  </div>
+</div>
+
+<script>
+  function togglePasswordVisibility() {
+    const passwordField = document.getElementById("password-field");
+    const eyeIcon = document.getElementById("eye-icon");
+    const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+    passwordField.setAttribute("type", type);
+
+    if (type === "text") {
+      eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0012 19c-4.478 0-8.268-2.943-9.542-7a10.05 10.05 0 01.083-2.625M10.125 5.175A9.97 9.97 0 0112 5c4.478 0 8.268 2.943 9.542 7a10.05 10.05 0 01-.083 2.625M9.878 14.121A3 3 0 1115 9m-5.293 5.293L9.878 14.12z" />`;
+    } else {
+      eyeIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />`;
+    }
+  }
+</script>
