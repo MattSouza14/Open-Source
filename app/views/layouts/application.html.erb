@@ -19,28 +19,38 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  
   <body class="bg-gray-950 text-white">
     <main class="bg-gray-950 text-white">
       <%= render 'layouts/nav' %>
       <% if alert.present? %>
-        <div class="relative py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert">
+        <div class="div-alert " id="notice" id="alert">
           <span><%= alert %></span>
-          <button class="absolute top-0 right-0 mt-1 mr-1 text-red-500 hover:text-red-700 text-2xl leading-none" onclick="document.getElementById('alert').style.display = 'none';">
-            &times;
+          <button class="px-1 py-1 right-0 mt-1 mr-1 text-red-500 hover:text-red-700 text-2xl leading-none" onclick="document.getElementById('alert').style.display = 'none';">
           </button>
         </div>
       <% end %>
       <% if notice.present? %>
-        <div class="relative py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+        <div class="div-notice" id="notice">
           <span class="pr-2"><%= notice %></span>
-          <button class="absolute top-0 right-0 mt-1 mr-1 text-green-500 hover:text-green-700 text-2xl leading-none" onclick="document.getElementById('notice').style.display = 'none';">
-            &times;
+          <button class="px-1 py-1 right-0 mt-1 mr-1 text-green-500 hover:text-green-700 text-2xl leading-none" onclick="document.getElementById('notice').style.display = 'none';">
           </button>
         </div>
       <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </main>
+    <script>
+        function hideAlert(name){
+          const alert = document.getElementById(name)
+          if(alert){
+            setTimeout(()=>{
+              alert.style.display ='none'
+            }, 2000)
+          }
+        }
+        hideAlert('alert')
+        hideAlert('notice')
+    </script>
   </body>
 </html>

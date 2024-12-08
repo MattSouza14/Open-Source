@@ -37,3 +37,35 @@ trix-toolbar .trix-button--icon-number-list {
 trix-button .trix-button--icon .trix-button--icon-increase-nesting-level{
     display: none !important;
 }
+.div-alert{
+    display: flex;
+ 
+    width: 15.0rem;
+    height: 2.0rem;
+    margin: auto;
+    border-radius: 8px;
+
+    background-color: #d4d4d4;
+    color: red;
+    font-weight: 600;
+    
+    padding: 0.3rem;
+
+}
+
+.div-notice{
+    display: flex;
+
+    width: 15.0rem;
+    height: 2.0rem;
+    margin: auto;
+    border-radius: 8px;
+
+    background-color: #d4d4d4;
+    color: green;
+    font-weight: 600;
+   
+
+    padding: 0.3rem;
+
+}
