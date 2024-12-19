@@ -98,7 +98,7 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.4.0)
-    debug (1.9.2)
+    debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
     devise (4.9.4)
@@ -110,6 +110,7 @@ GEM
     drb (2.2.1)
     erubi (1.13.0)
     ffi (1.17.0-x64-mingw-ucrt)
+    ffi (1.17.0-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -121,8 +122,8 @@ GEM
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
-    io-console (0.7.2)
-    irb (1.14.1)
+    io-console (0.8.0)
+    irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     jbuilder (2.13.0)
@@ -157,13 +158,17 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.16.7-x64-mingw-ucrt)
       racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.26.3)
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     pg (1.5.9-x64-mingw-ucrt)
-    psych (5.2.0)
+    psych (5.2.2)
+      date
       stringio
     public_suffix (6.0.1)
     puma (6.4.3)
@@ -207,10 +212,10 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    rdoc (6.7.0)
+    rdoc (6.10.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    reline (0.5.11)
+    reline (0.6.0)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -269,6 +274,8 @@ GEM
     tailwindcss-rails (2.7.3-x64-mingw-ucrt)
       railties (>= 7.0.0)
       tailwindcss-ruby
+    tailwindcss-rails (2.7.3-x86_64-linux)
+      railties (>= 7.0.0)
     tailwindcss-ruby (3.4.14-x64-mingw-ucrt)
     thor (1.3.2)
     timeout (0.4.2)
@@ -299,6 +306,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
