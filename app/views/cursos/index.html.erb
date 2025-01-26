@@ -1,0 +1,11 @@
+<div class="bg-zinc-900 text-zinc-100 p-6 min-h-screen">
+  <h1 class="text-4xl font-bold text-lime-500 mb-6">Cursos Disponíveis</h1>
+  <ul class="space-y-4">
+    <% @cursos.each do |curso| %>
+      <li class="bg-zinc-800 p-4 rounded shadow-md hover:bg-zinc-700">
+        <%= link_to curso.nome, curso_path(curso), class: "text-lime-400 font-semibold hover:underline" %>
+        <span class="text-zinc-300">- <%= curso.descricao %></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'actiontext.css';
+
 
 /* Estilizando o fundo e o texto do editor */
 trix-editor {
@@ -20,7 +20,7 @@ trix-toolbar {
 
 /* Estilizando os ícones do FontAwesome */
 trix-toolbar .trix-button-icon i {
-    color: #d4d4d4;
+    color: #59ff2f;
     /* Cor dos ícones */
     font-size: 1rem;
     /* Ajuste o tamanho se necessário */

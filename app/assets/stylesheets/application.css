@@ -1,5 +1,3 @@
-@import 'actiontext.css';
-
 /* Estilizando o fundo e o texto do editor */
 trix-editor {
     background-color: #1e1e1e;
@@ -16,7 +14,7 @@ trix-toolbar {
 
 /* Estilizando os ícones do FontAwesome */
 trix-toolbar .trix-button-icon i {
-    color: #d4d4d4;
+    color: #47eb15;
     /* Cor dos ícones */
     font-size: 1rem;
     /* Ajuste o tamanho se necessário */
@@ -37,6 +35,7 @@ trix-toolbar .trix-button--icon-number-list {
 trix-button .trix-button--icon .trix-button--icon-increase-nesting-level{
     display: none !important;
 }
+
 .div-alert{
     display: flex;
  

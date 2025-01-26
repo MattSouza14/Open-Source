@@ -1,16 +1,18 @@
 /*
- * Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
- * the trix-editor content (whether displayed or under editing). Feel free to incorporate this
- * inclusion directly in any other asset bundle and remove this file.
+ * Fornece um ponteiro pronto para uso para a folha de estilos padrão do Trix,
+ * que formatará a barra de ferramentas e o conteúdo do trix-editor
+ * (seja exibido ou em edição). Fique à vontade para incorporar essa
+ * inclusão diretamente em qualquer outro pacote de assets e remover este arquivo.
  *
  *= require trix
 */
 
 /*
- * We need to override trix.css’s image gallery styles to accommodate the
- * <action-text-attachment> element we wrap around attachments. Otherwise,
- * images in galleries will be squished by the max-width: 33%; rule.
-*/
+ * Precisamos sobrescrever os estilos de galeria de imagens do trix.css para
+ * acomodar o elemento <action-text-attachment> que encapsulamos em torno dos anexos.
+ * Caso contrário, imagens em galerias serão comprimidas pela regra max-width: 33%.
+ */
+
 .trix-content .attachment-gallery > action-text-attachment,
 .trix-content .attachment-gallery > .attachment {
   flex: 1 0 33%;

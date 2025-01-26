@@ -1,0 +1,27 @@
+<div class="bg-zinc-900 text-zinc-100 p-6 min-h-screen">
+  <h1 class="text-3xl font-bold text-lime-500 mb-6"><%= @aula.titulo %></h1>
+
+  <div class="flex justify-center mb-6">
+    <iframe
+      class="rounded shadow-lg"
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/<%= @aula.video_url %>"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <% if @aula.liberada %>
+    <p class="text-lime-400 font-medium mb-4">Aula disponível!</p>
+    <% if @next_aula %>
+      <%= button_to "Liberar próxima aula", curso_aula_path(@curso, @next_aula), method: :patch, 
+        class: "bg-lime-500 hover:bg-lime-600 text-zinc-900 font-bold py-2 px-4 rounded shadow" %>
+    <% end %>
+  <% else %>
+    <p class="text-red-500 font-medium">Aula bloqueada.</p>
+  <% end %>
+</div>

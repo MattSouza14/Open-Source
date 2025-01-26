@@ -31,18 +31,4 @@
 
 </div>
 
-<script type="module">
-  document.addEventListener('turbo:load', () => {
-    const select = document.getElementById('category_select');
-    const filterButton = document.getElementById('filter_button');
-
-    select.addEventListener('change', () => {
-      if (select.value) {
-        filterButton.disabled = false;
-      } else {
-        filterButton.disabled = true;
-      }
-    });
-  });
-</script>
 

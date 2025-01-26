@@ -1,0 +1,16 @@
+<div class="bg-zinc-900 text-zinc-100 p-6 min-h-screen">
+  <h1 class="text-4xl font-bold text-lime-500 mb-4"><%= @curso.nome %></h1>
+  <p class="text-zinc-300 mb-8"><%= @curso.descricao %></p>
+
+  <h2 class="text-2xl font-semibold text-lime-400 mb-4">Aulas</h2>
+  <ul class="space-y-4">
+    <% @curso.aulas.each do |aula| %>
+      <li class="bg-zinc-800 p-4 rounded shadow-md hover:bg-zinc-700">
+        <%= link_to aula.titulo, curso_aula_path(@curso, aula), class: "text-lime-400 font-semibold hover:underline" %>
+        <% unless aula.liberada %>
+          <span class="text-red-500 ml-2">(Bloqueada)</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

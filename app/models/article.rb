@@ -4,4 +4,5 @@ class Article < ApplicationRecord
   
   belongs_to :user
   validates :category, presence: true, inclusion: { in: CATEGORIES }
+  has_many :comments, dependent: :destroy
 end
